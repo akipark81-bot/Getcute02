@@ -11,56 +11,69 @@
 html,body{height:100%}
 body{
   margin:0;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  background: radial-gradient(60% 50% at 50% 0%, #fff 0, var(--bg) 60%);
+  font-family: ui-rounded, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
   color:var(--ink);
+  background:
+    radial-gradient(1200px 1200px at 90% -10%, #ffffff, transparent 60%),
+    radial-gradient(1000px 1000px at -10% 110%, #ffffff, transparent 55%),
+    var(--bg);
 }
 
 /* Header */
 .app-header{
   position:sticky; top:0; z-index:10;
   display:flex; align-items:center; justify-content:space-between;
-  padding:14px 18px; background:#fff; border-bottom:1px solid #f3dbe8;
+  padding:14px 16px;
+  background:linear-gradient(180deg, #fff6fb, #fff0f7 60%, transparent);
+  backdrop-filter: blur(6px);
+  border-bottom:1px solid #f5d9e8;
 }
 .app-header h1{margin:0; font-size:20px}
-.money{font-weight:700}
+.money{background:var(--pill); padding:8px 12px; border-radius:999px}
 
-/* Screens */
-#screens{padding:80px 16px 90px} /* room for header & tabs */
-.screen{display:none; max-width:900px; margin:0 auto}
-.screen.is-active{display:block}
-
-.card{
-  background:var(--card);
-  border:1px solid #f3dbe8; border-radius:16px; padding:16px;
-  width:320px;
-}
-.hint{opacity:.7}
+/* Layout */
+.screen{padding:90px 16px 96px}
+.page{display:none; max-width:900px; margin:0 auto}
+.page.active{display:block}
 
 /* Avatar stage */
-.stage{display:flex; justify-content:center; align-items:center; margin:12px 0}
-.avatar-svg{width:260px; height:312px; filter: drop-shadow(0 12px 20px rgba(0,0,0,.06));}
-.avatar-svg.mini{width:80px; height:96px}
-
-/* Controls */
-.controls{max-width:900px; margin:0 auto; display:grid; gap:10px; padding-bottom:10px}
-.group label{display:block; font-size:14px; margin:8px 2px}
-.chips{display:flex; gap:6px; flex-wrap:wrap}
-.chips button{
-  border:1px solid #f0cfe2; background:#fff; border-radius:10px; padding:6px 10px; cursor:pointer;
+.avatar-stage{display:flex; gap:20px; align-items:center; flex-wrap:wrap; justify-content:center}
+.avatar-svg{
+  width:280px; height:auto;
+  border-radius:24px;
+  background:linear-gradient(180deg, #ffeef7, #ffe2f1);
+  box-shadow: 0 12px 30px rgba(0,0,0,.08), inset 0 2px 0 #fff;
+  padding:16px;
 }
-.chips button.is-on{background:var(--accent); color:#fff; border-color:#ff9ad0}
 
-/* Pills & buttons */
-.pill{background:var(--accent); color:#fff; border:0; border-radius:999px; padding:10px 14px; cursor:pointer}
-.pill.outline{background:var(--pill); color:var(--ink)}
+/* Picker */
+.picker{flex:1; min-width:280px; background:var(--card); border-radius:16px; padding:12px 12px 6px; box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.picker-row{display:flex; align-items:center; justify-content:space-between; padding:10px 6px; border-bottom:1px dashed #f0cfe0}
+.picker-row:last-child{border-bottom:0}
+.picker-row label{font-weight:700}
+.ctrls{display:flex; align-items:center; gap:10px}
+.ctrls button{width:36px; height:36px; border-radius:10px; border:0; background:var(--pill); cursor:pointer}
+.ctrls button:active{transform:translateY(1px)}
+.skin-row{display:flex; gap:8px; flex-wrap:wrap}
+.skin-row button{width:26px; height:26px; border-radius:50%; border:2px solid #fff; box-shadow:0 2px 6px rgba(0,0,0,.12); cursor:pointer}
+.picker-actions{display:flex; gap:10px; padding:12px 6px}
+.picker-actions button{flex:1; padding:10px 12px; border-radius:12px; border:0; cursor:pointer; background:var(--accent); color:#fff}
+.picker-actions button:last-child{background:#2f2f2f}
+
+/* Cards */
+.card{background:var(--card); border-radius:16px; padding:16px; box-shadow:0 10px 26px rgba(0,0,0,.08)}
+.card h2{margin:0 0 8px}
 
 /* Tabs (bottom nav) */
 .tabs{
-  position:fixed; left:0; right:0; bottom:0; z-index:10;
-  display:flex; justify-content:space-around; padding:10px 6px; background:#fff; border-top:1px solid #f3dbe8;
+  position:fixed; bottom:10px; left:0; right:0; z-index:20;
+  display:flex; gap:12px; justify-content:center;
+  padding:10px 12px;
 }
 .tabs button{
-  width:60px; height:44px; border-radius:12px; border:0; background:#f8e8f1; font-size:20px; cursor:pointer;
+  width:56px; height:56px; border-radius:14px; border:0; cursor:pointer;
+  background:var(--pill); box-shadow:0 8px 22px rgba(0,0,0,.12), inset 0 1px #fff;
+  font-size:22px;
+  transition:transform .12s ease;
 }
-.tabs button.is-active{background:var(--accent); color:#fff}
+.tabs button.active{background:var(--accent); color:#fff; transform:translateY(-2px)}
