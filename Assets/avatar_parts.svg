@@ -1,152 +1,100 @@
-  <!-- EYES (cont.) -->
-  <symbol id="eyes_4">
-    <!-- עיניים חצי-סגורות -->
-    <path d="M122 120 q8 6 16 0" class="line"/>
-    <path d="M162 120 q8 6 16 0" class="line"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg viewBox="0 0 300 360" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    :root{
+      --skin1:#f8e2d6; --skin2:#f3cfb9; --skin3:#e7bfa7;
+      --skin4:#d7a98f; --skin5:#c59277; --skin6:#a8715a;
+      --ink:#5b463a;
+      --blush:#ffb8c8;
+
+      --t1:#ffb6dc; --t2:#ffd36f; --t3:#b2f0d9; --t4:#a6c8ff; --t5:#ffd7ef; --t6:#d3b5ff;
+      --b1:#ffcf93; --b2:#b8e0ff; --b3:#ffe898; --b4:#ffc0b3; --b5:#c7efd0; --b6:#f9c6dd;
+      --d1:#ffa3c7; --d2:#ffd891; --d3:#b1e6cf; --d4:#c3d6ff; --d5:#ffd0ea; --d6:#e0c6ff;
+      --sh1:#333; --sh2:#6d4c41; --sh3:#eab676; --sh4:#845ec2; --sh5:#ff8066; --sh6:#5c5c5c;
+
+      --hair1:#6a4b3c; --hair2:#8b5e3c; --hair3:#2e2e2e; --hair4:#45322b; --hair5:#c49a6c; --hair6:#7d4a7d;
+    }
+    .line{ stroke:var(--ink); stroke-width:6; stroke-linecap:round; stroke-linejoin:round; fill:none }
+    .fill-line{ stroke:var(--ink); stroke-width:6; stroke-linecap:round; stroke-linejoin:round }
+  </style>
+
+  <!-- BODY (עיגול ראש + גוף) לכל גווני העור -->
+  <symbol id="skin-1">
+    <circle cx="150" cy="110" r="70" fill="var(--skin1)" class="fill-line"/>
+    <circle cx="122" cy="120" r="10" fill="var(--blush)" />
+    <circle cx="178" cy="120" r="10" fill="var(--blush)" />
+    <path d="M116 115 q34 28 68 0" fill="none" class="line" />
+    <rect x="95" y="180" rx="26" ry="26" width="110" height="120" fill="var(--skin1)" class="fill-line"/>
+    <rect x="80" y="210" rx="18" ry="18" width="25" height="70" fill="var(--skin1)" class="fill-line"/>
+    <rect x="195" y="210" rx="18" ry="18" width="25" height="70" fill="var(--skin1)" class="fill-line"/>
+    <rect x="115" y="300" width="26" height="30" rx="8" fill="var(--skin1)" class="fill-line"/>
+    <rect x="160" y="300" width="26" height="30" rx="8" fill="var(--skin1)" class="fill-line"/>
   </symbol>
-  <symbol id="eyes_5">
-    <!-- עיניים עם ריסים -->
-    <circle cx="130" cy="120" r="7" fill="#473a2b"/>
-    <circle cx="170" cy="120" r="7" fill="#473a2b"/>
-    <path d="M121 112 l-6 -4" class="line"/>
-    <path d="M139 112 l6 -4" class="line"/>
-    <path d="M161 112 l-6 -4" class="line"/>
-    <path d="M179 112 l6 -4" class="line"/>
-  </symbol>
-  <symbol id="eyes_6">
-    <!-- כוכבונים בפנים העין -->
-    <circle cx="130" cy="120" r="9" fill="#473a2b"/>
-    <circle cx="170" cy="120" r="9" fill="#473a2b"/>
-    <circle cx="127" cy="116" r="2.5" fill="#fff"/>
-    <circle cx="167" cy="116" r="2.5" fill="#fff"/>
-  </symbol>
+  <symbol id="skin-2"><use href="#skin-1"/><style>:root{--skin1:var(--skin2)}</style></symbol>
+  <symbol id="skin-3"><use href="#skin-1"/><style>:root{--skin1:var(--skin3)}</style></symbol>
+  <symbol id="skin-4"><use href="#skin-1"/><style>:root{--skin1:var(--skin4)}</style></symbol>
+  <symbol id="skin-5"><use href="#skin-1"/><style>:root{--skin1:var(--skin5)}</style></symbol>
+  <symbol id="skin-6"><use href="#skin-1"/><style>:root{--skin1:var(--skin6)}</style></symbol>
+
+  <!-- EYES -->
+  <symbol id="eyes-1"><circle cx="130" cy="110" r="8" fill="#333"/><circle cx="170" cy="110" r="8" fill="#333"/></symbol>
+  <symbol id="eyes-2"><path d="M122 110 q8 -8 16 0" class="line"/><path d="M162 110 q8 -8 16 0" class="line"/></symbol>
+  <symbol id="eyes-3"><path d="M122 114 q8 8 16 0" class="line"/><path d="M162 114 q8 8 16 0" class="line"/></symbol>
+  <symbol id="eyes-4"><circle cx="130" cy="110" r="8" fill="#333"/><path d="M162 114 q8 8 16 0" class="line"/></symbol>
+  <symbol id="eyes-5"><path d="M122 110 q8 -8 16 0" class="line"/><circle cx="170" cy="110" r="8" fill="#333"/></symbol>
+  <symbol id="eyes-6"><circle cx="150" cy="112" r="2" fill="#333"/><path d="M122 110 q8 -8 16 0" class="line"/><path d="M162 110 q8 -8 16 0" class="line"/></symbol>
+
+  <!-- MOUTH -->
+  <symbol id="mouth-1"><path d="M130 135 q20 16 40 0" class="line"/></symbol>
+  <symbol id="mouth-2"><path d="M130 140 q20 -12 40 0" class="line"/></symbol>
+  <symbol id="mouth-3"><circle cx="150" cy="138" r="6" fill="#333"/></symbol>
 
   <!-- HAIR (6) -->
-  <symbol id="hair_1">
-    <!-- בוב פשוט -->
-    <path d="M90 86 q60 -40 120 0 v50 q0 20 -20 20 h-80 q-20 0 -20 -20 z" fill="var(--hair1)" class="fill"/>
-  </symbol>
-  <symbol id="hair_2">
-    <!-- פוני -->
-    <path d="M90 86 q60 -40 120 0 v46 q0 20 -20 20 h-80 q-20 0 -20 -20 z" fill="var(--hair2)" class="fill"/>
-    <path d="M110 90 q20 16 40 0" class="line"/>
-  </symbol>
-  <symbol id="hair_3">
-    <!-- תלתלים רכים -->
-    <path d="M86 90 q64 -42 128 0 v54 q0 24 -24 24 h-80 q-24 0 -24 -24 z" fill="var(--hair3)" class="fill"/>
-    <path d="M95 140 q10 10 0 20" class="line"/>
-    <path d="M205 140 q-10 10 0 20" class="line"/>
-  </symbol>
-  <symbol id="hair_4">
-    <!-- שיער ארוך -->
-    <path d="M86 90 q64 -42 128 0 v80 q0 24 -24 24 h-80 q-24 0 -24 -24 z" fill="var(--hair4)" class="fill"/>
-  </symbol>
-  <symbol id="hair_5">
-    <!-- קוקיות -->
-    <path d="M90 86 q60 -40 120 0 v46 q0 20 -20 20 h-80 q-20 0 -20 -20 z" fill="var(--hair5)" class="fill"/>
-    <circle cx="96" cy="110" r="12" fill="var(--hair5)" class="fill"/>
-    <circle cx="204" cy="110" r="12" fill="var(--hair5)" class="fill"/>
-  </symbol>
-  <symbol id="hair_6">
-    <!-- קצר כהה -->
-    <path d="M92 92 q58 -38 116 0 v36 q0 18 -18 18 h-80 q-18 0 -18 -18 z" fill="var(--hair6)" class="fill"/>
-  </symbol>
+  <symbol id="hair-1"><path d="M86 92 q14 -54 64 -54 t64 54 v16 q-18 44 -64 44 t-64 -44 z" fill="var(--hair1)" class="fill-line"/></symbol>
+  <symbol id="hair-2"><path d="M86 90 q12 -46 64 -46 t64 46 v22 q-32 28 -64 28 t-64 -28 z" fill="var(--hair2)" class="fill-line"/></symbol>
+  <symbol id="hair-3"><path d="M86 86 q18 -40 64 -40 t64 40 v26 q-18 20 -64 20 t-64 -20 z" fill="var(--hair3)" class="fill-line"/></symbol>
+  <symbol id="hair-4"><path d="M86 92 q18 -50 64 -50 t64 50 v18 q-24 34 -64 34 t-64 -34 z" fill="var(--hair4)" class="fill-line"/></symbol>
+  <symbol id="hair-5"><path d="M86 94 q18 -46 64 -46 t64 46 v20 q-14 30 -64 30 t-64 -30 z" fill="var(--hair5)" class="fill-line"/></symbol>
+  <symbol id="hair-6"><path d="M86 92 q18 -48 64 -48 t64 48 v18 q-28 36 -64 36 t-64 -36 z" fill="var(--hair6)" class="fill-line"/></symbol>
 
   <!-- TOPS (6) -->
-  <symbol id="top_1">
-    <rect x="105" y="180" width="90" height="48" rx="16" fill="var(--top1)" class="fill"/>
-  </symbol>
-  <symbol id="top_2">
-    <rect x="105" y="180" width="90" height="48" rx="16" fill="var(--top2)" class="fill"/>
-  </symbol>
-  <symbol id="top_3">
-    <rect x="105" y="180" width="90" height="48" rx="16" fill="var(--top3)" class="fill"/>
-  </symbol>
-  <symbol id="top_4">
-    <rect x="105" y="180" width="90" height="48" rx="16" fill="var(--top4)" class="fill"/>
-  </symbol>
-  <symbol id="top_5">
-    <rect x="105" y="180" width="90" height="48" rx="16" fill="var(--top5)" class="fill"/>
-  </symbol>
-  <symbol id="top_6">
-    <rect x="105" y="180" width="90" height="48" rx="16" fill="var(--top6)" class="fill"/>
-  </symbol>
+  <symbol id="top-0"></symbol>
+  <symbol id="top-1"><rect x="102" y="180" width="96" height="80" rx="28" fill="var(--t1)" class="fill-line"/></symbol>
+  <symbol id="top-2"><rect x="102" y="180" width="96" height="80" rx="28" fill="var(--t2)" class="fill-line"/></symbol>
+  <symbol id="top-3"><rect x="102" y="180" width="96" height="80" rx="28" fill="var(--t3)" class="fill-line"/></symbol>
+  <symbol id="top-4"><rect x="102" y="180" width="96" height="80" rx="28" fill="var(--t4)" class="fill-line"/></symbol>
+  <symbol id="top-5"><rect x="102" y="180" width="96" height="80" rx="28" fill="var(--t5)" class="fill-line"/></symbol>
+  <symbol id="top-6"><rect x="102" y="180" width="96" height="80" rx="28" fill="var(--t6)" class="fill-line"/></symbol>
 
-  <!-- BOTTOMS (6) – מכנס/חצאית קצרים -->
-  <symbol id="bottom_1">
-    <rect x="126" y="228" width="25" height="26" rx="6" fill="var(--bottom1)" class="fill"/>
-    <rect x="154" y="228" width="25" height="26" rx="6" fill="var(--bottom1)" class="fill"/>
-  </symbol>
-  <symbol id="bottom_2">
-    <rect x="126" y="228" width="25" height="26" rx="6" fill="var(--bottom2)" class="fill"/>
-    <rect x="154" y="228" width="25" height="26" rx="6" fill="var(--bottom2)" class="fill"/>
-  </symbol>
-  <symbol id="bottom_3">
-    <rect x="126" y="228" width="25" height="26" rx="6" fill="var(--bottom3)" class="fill"/>
-    <rect x="154" y="228" width="25" height="26" rx="6" fill="var(--bottom3)" class="fill"/>
-  </symbol>
-  <symbol id="bottom_4">
-    <rect x="126" y="228" width="25" height="26" rx="6" fill="var(--bottom4)" class="fill"/>
-    <rect x="154" y="228" width="25" height="26" rx="6" fill="var(--bottom4)" class="fill"/>
-  </symbol>
-  <symbol id="bottom_5">
-    <rect x="126" y="228" width="25" height="26" rx="6" fill="var(--bottom5)" class="fill"/>
-    <rect x="154" y="228" width="25" height="26" rx="6" fill="var(--bottom5)" class="fill"/>
-  </symbol>
-  <symbol id="bottom_6">
-    <rect x="126" y="228" width="25" height="26" rx="6" fill="var(--bottom6)" class="fill"/>
-    <rect x="154" y="228" width="25" height="26" rx="6" fill="var(--bottom6)" class="fill"/>
-  </symbol>
+  <!-- BOTTOMS (6) -->
+  <symbol id="bottom-0"></symbol>
+  <symbol id="bottom-1"><rect x="120" y="250" width="60" height="46" rx="10" fill="var(--b1)" class="fill-line"/></symbol>
+  <symbol id="bottom-2"><rect x="120" y="250" width="60" height="46" rx="10" fill="var(--b2)" class="fill-line"/></symbol>
+  <symbol id="bottom-3"><rect x="120" y="250" width="60" height="46" rx="10" fill="var(--b3)" class="fill-line"/></symbol>
+  <symbol id="bottom-4"><rect x="120" y="250" width="60" height="46" rx="10" fill="var(--b4)" class="fill-line"/></symbol>
+  <symbol id="bottom-5"><rect x="120" y="250" width="60" height="46" rx="10" fill="var(--b5)" class="fill-line"/></symbol>
+  <symbol id="bottom-6"><rect x="120" y="250" width="60" height="46" rx="10" fill="var(--b6)" class="fill-line"/></symbol>
 
-  <!-- DRESSES (6) – שמלה מחליפה גם TOP וגם BOTTOM -->
-  <symbol id="dress_1">
-    <path d="M110 180 h80 v26 q0 6 -6 10 l-10 6 q-24 14 -48 0 l-10 -6 q-6 -4 -6 -10 z"
-          fill="var(--dress1)" class="fill"/>
-  </symbol>
-  <symbol id="dress_2">
-    <path d="M110 180 h80 v26 q0 6 -6 10 l-10 6 q-24 14 -48 0 l-10 -6 q-6 -4 -6 -10 z"
-          fill="var(--dress2)" class="fill"/>
-  </symbol>
-  <symbol id="dress_3">
-    <path d="M110 180 h80 v26 q0 6 -6 10 l-10 6 q-24 14 -48 0 l-10 -6 q-6 -4 -6 -10 z"
-          fill="var(--dress3)" class="fill"/>
-  </symbol>
-  <symbol id="dress_4">
-    <path d="M110 180 h80 v26 q0 6 -6 10 l-10 6 q-24 14 -48 0 l-10 -6 q-6 -4 -6 -10 z"
-          fill="var(--dress4)" class="fill"/>
-  </symbol>
-  <symbol id="dress_5">
-    <path d="M110 180 h80 v26 q0 6 -6 10 l-10 6 q-24 14 -48 0 l-10 -6 q-6 -4 -6 -10 z"
-          fill="var(--dress5)" class="fill"/>
-  </symbol>
-  <symbol id="dress_6">
-    <path d="M110 180 h80 v26 q0 6 -6 10 l-10 6 q-24 14 -48 0 l-10 -6 q-6 -4 -6 -10 z"
-          fill="var(--dress6)" class="fill"/>
-  </symbol>
+  <!-- DRESSES (6) -->
+  <symbol id="dress-0"></symbol>
+  <symbol id="dress-1"><path d="M120 180 h60 v70 q0 18 -30 22 q-30 -4 -30 -22z" fill="var(--d1)" class="fill-line"/></symbol>
+  <symbol id="dress-2"><path d="M120 180 h60 v70 q0 18 -30 22 q-30 -4 -30 -22z" fill="var(--d2)" class="fill-line"/></symbol>
+  <symbol id="dress-3"><path d="M120 180 h60 v70 q0 18 -30 22 q-30 -4 -30 -22z" fill="var(--d3)" class="fill-line"/></symbol>
+  <symbol id="dress-4"><path d="M120 180 h60 v70 q0 18 -30 22 q-30 -4 -30 -22z" fill="var(--d4)" class="fill-line"/></symbol>
+  <symbol id="dress-5"><path d="M120 180 h60 v70 q0 18 -30 22 q-30 -4 -30 -22z" fill="var(--d5)" class="fill-line"/></symbol>
+  <symbol id="dress-6"><path d="M120 180 h60 v70 q0 18 -30 22 q-30 -4 -30 -22z" fill="var(--d6)" class="fill-line"/></symbol>
 
   <!-- SHOES (6) -->
-  <symbol id="shoes_1">
-    <rect x="120" y="296" width="36" height="20" rx="8" fill="var(--shoe1)" />
-    <rect x="164" y="296" width="36" height="20" rx="8" fill="var(--shoe1)" />
-  </symbol>
-  <symbol id="shoes_2">
-    <rect x="120" y="296" width="36" height="20" rx="8" fill="var(--shoe2)" />
-    <rect x="164" y="296" width="36" height="20" rx="8" fill="var(--shoe2)" />
-  </symbol>
-  <symbol id="shoes_3">
-    <rect x="120" y="296" width="36" height="20" rx="8" fill="var(--shoe3)" />
-    <rect x="164" y="296" width="36" height="20" rx="8" fill="var(--shoe3)" />
-  </symbol>
-  <symbol id="shoes_4">
-    <rect x="120" y="296" width="36" height="20" rx="8" fill="var(--shoe4)" />
-    <rect x="164" y="296" width="36" height="20" rx="8" fill="var(--shoe4)" />
-  </symbol>
-  <symbol id="shoes_5">
-    <rect x="120" y="296" width="36" height="20" rx="8" fill="var(--shoe5)" />
-    <rect x="164" y="296" width="36" height="20" rx="8" fill="var(--shoe5)" />
-  </symbol>
-  <symbol id="shoes_6">
-    <rect x="120" y="296" width="36" height="20" rx="8" fill="var(--shoe6)" />
-    <rect x="164" y="296" width="36" height="20" rx="8" fill="var(--shoe6)" />
-  </symbol>
+  <symbol id="shoes-1"><rect x="106" y="326" width="38" height="18" rx="8" fill="var(--sh1)" class="fill-line"/><rect x="156" y="326" width="38" height="18" rx="8" fill="var(--sh1)" class="fill-line"/></symbol>
+  <symbol id="shoes-2"><rect x="106" y="326" width="38" height="18" rx="8" fill="var(--sh2)" class="fill-line"/><rect x="156" y="326" width="38" height="18" rx="8" fill="var(--sh2)" class="fill-line"/></symbol>
+  <symbol id="shoes-3"><rect x="106" y="326" width="38" height="18" rx="8" fill="var(--sh3)" class="fill-line"/><rect x="156" y="326" width="38" height="18" rx="8" fill="var(--sh3)" class="fill-line"/></symbol>
+  <symbol id="shoes-4"><rect x="106" y="326" width="38" height="18" rx="8" fill="var(--sh4)" class="fill-line"/><rect x="156" y="326" width="38" height="18" rx="8" fill="var(--sh4)" class="fill-line"/></symbol>
+  <symbol id="shoes-5"><rect x="106" y="326" width="38" height="18" rx="8" fill="var(--sh5)" class="fill-line"/><rect x="156" y="326" width="38" height="18" rx="8" fill="var(--sh5)" class="fill-line"/></symbol>
+  <symbol id="shoes-6"><rect x="106" y="326" width="38" height="18" rx="8" fill="var(--sh6)" class="fill-line"/><rect x="156" y="326" width="38" height="18" rx="8" fill="var(--sh6)" class="fill-line"/></symbol>
+
+  <!-- ACCESSORIES -->
+  <symbol id="acc-0"></symbol>
+  <symbol id="acc-1"><circle cx="48" cy="120" r="16" fill="#ffd166" class="fill-line"/><circle cx="256" cy="150" r="12" fill="#ffd166" class="fill-line"/></symbol>
+  <symbol id="acc-2"><path d="M110 78 h80 v20 h-80 z" fill="#a6c8ff" class="fill-line"/><circle cx="120" cy="88" r="12" fill="#6b5748" class="fill-line"/><circle cx="180" cy="88" r="12" fill="#6b5748" class="fill-line"/></symbol>
+  <symbol id="acc-3"><path d="M110 70 h80 v28 h-80 z" fill="#ffd36f" class="fill-line"/></symbol>
 </svg>
