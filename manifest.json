@@ -1,7 +1,7 @@
 {
   "name": "GetCute",
   "short_name": "GetCute",
-  "start_url": "./?source=pwa",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#ffeef7",
   "theme_color": "#ffeef7",
