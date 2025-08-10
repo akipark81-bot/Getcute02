@@ -1,3 +1,19 @@
+async function loadParts() {
+  const res = await fetch('assets/avatar_parts.svg?v=11');
+  const svgText = await res.text();
+  document.getElementById('parts-lib').innerHTML = svgText;
+}
+
+const state = { hair:1, eyes:1, mouth:1, top:1, bottom:1, dress:0, shoes:1, skin:3, acc:0 };
+const limits = { hair:6, eyes:6, mouth:3, top:6, bottom:6, dress:6, shoes:6, skin:6, acc:3 };
+
+/* ...שאר הפונקציות (setUse, render, מאזיני הכפתורים וכו') נשאר אותו דבר... */
+
+/* במקום לקרוא ל-render() מיד, נאתחל כך: */
+(async function init(){
+  await loadParts();
+  render();
+})();
 /* --- Load parts library (SVG symbols) --- */
 async function loadParts() {
   const res = await fetch('assets/avatar_parts.svg?v=10');
