@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1" />
+  <title>GetCute</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json?v=7" />
+  <meta name="theme-color" content="#ffeef7" />
+  <link rel="apple-touch-icon" href="assets/icon-192.png" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css?v=7" />
+</head>
+<body>
+
+  <!-- Header (coins always visible) -->
+  <header class="app-header">
+    <h1>GetCute</h1>
+    <div class="money">💎 <span id="coins">0</span></div>
+  </header>
+
+  <!-- Screens (we'll start with Home + Avatar) -->
+  <main id="screens">
+    <!-- Home -->
+    <section id="screen-home" class="screen is-active">
+      <div class="card">
+        <h2>Your avatar</h2>
+        <p class="hint">Mood: <span id="mood">happy</span></p>
+        <button class="pill" id="btnWorkout">✨ I worked out today!</button>
+        <button class="pill outline" data-tab="avatar">Change outfit</button>
+        <div class="mini-avatar">
+          <!-- we render the same SVG here but small -->
+          <svg viewBox="0 0 300 360" class="avatar-svg mini">
+            <use id="mini-skin"   href="#skin_1"></use>
+            <use id="mini-eyes"   href="#eyes_1"></use>
+            <use id="mini-hair"   href="#hair_1"></use>
+            <use id="mini-top"    href="#top_1"></use>
+            <use id="mini-bottom" href="#bottom_1"></use>
+            <use id="mini-dress"  href="#dress_1"></use>
+            <use id="mini-shoes"  href="#shoes_1"></use>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- Avatar customizer -->
+    <section id="screen-avatar" class="screen">
+      <div class="stage">
+        <!-- SPRITE SHEET (hidden, just provides <symbol> defs) -->
+        <div id="parts-sprite" aria-hidden="true" style="display:none">
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!-- we inline the file so GitHub Pages doesn't block external <use> to svg symbols -->
+        </div>
+
+        <!-- The live avatar -->
+        <svg id="avatar" viewBox="0 0 300 360" class="avatar-svg">
+          <use id="use-skin"   href="#skin_1"></use>
+          <use id="use-eyes"   href="#eyes_1"></use>
+          <use id="use-hair"   href="#hair_1"></use>
+          <use id="use-top"    href="#top_1"></use>
+          <use id="use-bottom" href="#bottom_1"></use>
+          <use id="use-dress"  href="#dress_1"></use>
+          <use id="use-shoes"  href="#shoes_1"></use>
+        </svg>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls">
+        <div class="group">
+          <label>Skin</label>
+          <div class="chips" data-part="skin"></div>
+        </div>
+        <div class="group">
+          <label>Hair</label>
+          <div class="chips" data-part="hair"></div>
+        </div>
+        <div class="group">
+          <label>Eyes</label>
+          <div class="chips" data-part="eyes"></div>
+        </div>
+        <div class="group">
+          <label>Top</label>
+          <div class="chips" data-part="top"></div>
+        </div>
+        <div class="group">
+          <label>Bottom</label>
+          <div class="chips" data-part="bottom"></div>
+        </div>
+        <div class="group">
+          <label>Dress</label>
+          <div class="chips" data-part="dress"></div>
+        </div>
+        <div class="group">
+          <label>Shoes</label>
+          <div class="chips" data-part="shoes"></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Bottom nav (fixed) -->
+  <nav class="tabs">
+    <button data-tab="home"   class="is-active">🏠</button>
+    <button data-tab="avatar">👗</button>
+    <button data-tab="food"   disabled>🍎</button>
+    <button data-tab="workouts" disabled>💪</button>
+    <button data-tab="calendar" disabled>📅</button>
+  </nav>
+
+  <!-- Service worker -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js?v=7').catch(console.error);
+      });
+    }
+  </script>
+
+  <!-- App -->
+  <script src="app.js?v=7" defer></script>
+</body>
+</html>
