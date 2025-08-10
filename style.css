@@ -1,4 +1,16 @@
 :root{
+  /* Avatar palette for external <use> */
+:root{
+  --skin1:#f8e2d6; --skin2:#f3cfb9; --skin3:#e7bfa7;
+  --skin4:#d7a98f; --skin5:#c59277; --skin6:#a8715a;
+  --ink:#5b463a; --blush:#ffb8c8;
+
+  --t1:#ffb6dc; --t2:#ffd36f; --t3:#b2f0d9; --t4:#a6c8ff; --t5:#ffd7ef; --t6:#d3b5ff;
+  --b1:#ffcf93; --b2:#b8e0ff; --b3:#ffe898; --b4:#ffc0b3; --b5:#c7efd0; --b6:#f9c6dd;
+  --d1:#ffa3c7; --d2:#ffd891; --d3:#b1e6cf; --d4:#c3d6ff; --d5:#ffd0ea; --d6:#e0c6ff;
+  --sh1:#333; --sh2:#6d4c41; --sh3:#eab676; --sh4:#845ec2; --sh5:#ff8066; --sh6:#5c5c5c;
+  --hair1:#6a4b3c; --hair2:#8b5e3c; --hair3:#2e2e2e; --hair4:#45322b; --hair5:#c49a6c; --hair6:#7d4a7d;
+}  
   --bg:#ffeef7;
   --card:#fff5fb;
   --ink:#5b4760;
