@@ -2,123 +2,150 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>GetCute</title>
 
   <!-- PWA -->
-  <link rel="manifest" href="manifest.json?v=7" />
+  <link rel="manifest" href="manifest.json" />
   <meta name="theme-color" content="#ffeef7" />
   <link rel="apple-touch-icon" href="assets/icon-192.png" />
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="style.css?v=7" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css?v=10" />
 </head>
 <body>
-
-  <!-- Header (coins always visible) -->
+  <!-- Header (כסף/מטבעות) -->
   <header class="app-header">
     <h1>GetCute</h1>
     <div class="money">💎 <span id="coins">0</span></div>
   </header>
 
-  <!-- Screens (we'll start with Home + Avatar) -->
-  <main id="screens">
-    <!-- Home -->
-    <section id="screen-home" class="screen is-active">
-      <div class="card">
-        <h2>Your avatar</h2>
-        <p class="hint">Mood: <span id="mood">happy</span></p>
-        <button class="pill" id="btnWorkout">✨ I worked out today!</button>
-        <button class="pill outline" data-tab="avatar">Change outfit</button>
-        <div class="mini-avatar">
-          <!-- we render the same SVG here but small -->
-          <svg viewBox="0 0 300 360" class="avatar-svg mini">
-            <use id="mini-skin"   href="#skin_1"></use>
-            <use id="mini-eyes"   href="#eyes_1"></use>
-            <use id="mini-hair"   href="#hair_1"></use>
-            <use id="mini-top"    href="#top_1"></use>
-            <use id="mini-bottom" href="#bottom_1"></use>
-            <use id="mini-dress"  href="#dress_1"></use>
-            <use id="mini-shoes"  href="#shoes_1"></use>
-          </svg>
-        </div>
-      </div>
-    </section>
+  <!-- מסכים -->
+  <main class="screen">
+    <!-- עמוד אווטאר -->
+    <section id="tab-avatar" class="page active">
+      <div class="avatar-stage">
+        <!-- כאן נטען הספרייה של ה-SVG (מוסתר) -->
+        <div id="parts-lib" aria-hidden="true" style="display:none"></div>
 
-    <!-- Avatar customizer -->
-    <section id="screen-avatar" class="screen">
-      <div class="stage">
-        <!-- SPRITE SHEET (hidden, just provides <symbol> defs) -->
-        <div id="parts-sprite" aria-hidden="true" style="display:none">
-          <?xml version="1.0" encoding="UTF-8"?>
-          <!-- we inline the file so GitHub Pages doesn't block external <use> to svg symbols -->
-        </div>
-
-        <!-- The live avatar -->
+        <!-- הדמות שמורכבת מ-<use> של הסמלים -->
         <svg id="avatar" viewBox="0 0 300 360" class="avatar-svg">
-          <use id="use-skin"   href="#skin_1"></use>
-          <use id="use-eyes"   href="#eyes_1"></use>
-          <use id="use-hair"   href="#hair_1"></use>
-          <use id="use-top"    href="#top_1"></use>
-          <use id="use-bottom" href="#bottom_1"></use>
-          <use id="use-dress"  href="#dress_1"></use>
-          <use id="use-shoes"  href="#shoes_1"></use>
+          <use id="skinUse"   href="#skin-3"></use>
+          <use id="eyesUse"   href="#eyes-1"></use>
+          <use id="mouthUse"  href="#mouth-1"></use>
+          <use id="hairUse"   href="#hair-1"></use>
+          <use id="topUse"    href="#top-1"></use>
+          <use id="bottomUse" href="#bottom-1"></use>
+          <use id="dressUse"  href="#dress-0"></use> <!-- 0 = אין שמלה -->
+          <use id="shoesUse"  href="#shoes-1"></use>
+          <use id="accUse"    href="#acc-0"></use>   <!-- 0 = אין אקססוריז -->
         </svg>
       </div>
 
-      <!-- Controls -->
-      <div class="controls">
-        <div class="group">
-          <label>Skin</label>
-          <div class="chips" data-part="skin"></div>
-        </div>
-        <div class="group">
+      <!-- בורר קטגוריות + כפתורי Next/Prev -->
+      <div class="picker">
+        <div class="picker-row">
           <label>Hair</label>
-          <div class="chips" data-part="hair"></div>
+          <div class="ctrls">
+            <button data-c="hair" data-dir="-1">‹</button>
+            <span id="hairLabel"></span>
+            <button data-c="hair" data-dir="1">›</button>
+          </div>
         </div>
-        <div class="group">
+
+        <div class="picker-row">
           <label>Eyes</label>
-          <div class="chips" data-part="eyes"></div>
+          <div class="ctrls">
+            <button data-c="eyes" data-dir="-1">‹</button>
+            <span id="eyesLabel"></span>
+            <button data-c="eyes" data-dir="1">›</button>
+          </div>
         </div>
-        <div class="group">
+
+        <div class="picker-row">
           <label>Top</label>
-          <div class="chips" data-part="top"></div>
+          <div class="ctrls">
+            <button data-c="top" data-dir="-1">‹</button>
+            <span id="topLabel"></span>
+            <button data-c="top" data-dir="1">›</button>
+          </div>
         </div>
-        <div class="group">
+
+        <div class="picker-row">
           <label>Bottom</label>
-          <div class="chips" data-part="bottom"></div>
+          <div class="ctrls">
+            <button data-c="bottom" data-dir="-1">‹</button>
+            <span id="bottomLabel"></span>
+            <button data-c="bottom" data-dir="1">›</button>
+          </div>
         </div>
-        <div class="group">
+
+        <div class="picker-row">
           <label>Dress</label>
-          <div class="chips" data-part="dress"></div>
+          <div class="ctrls">
+            <button data-c="dress" data-dir="-1">‹</button>
+            <span id="dressLabel"></span>
+            <button data-c="dress" data-dir="1">›</button>
+          </div>
         </div>
-        <div class="group">
+
+        <div class="picker-row">
           <label>Shoes</label>
-          <div class="chips" data-part="shoes"></div>
+          <div class="ctrls">
+            <button data-c="shoes" data-dir="-1">‹</button>
+            <span id="shoesLabel"></span>
+            <button data-c="shoes" data-dir="1">›</button>
+          </div>
+        </div>
+
+        <div class="picker-row">
+          <label>Skin</label>
+          <div class="skin-row" id="skinRow"></div>
+        </div>
+
+        <div class="picker-actions">
+          <button id="randomize">Surprise me ✨</button>
+          <button id="savePng">Save PNG</button>
         </div>
       </div>
     </section>
+
+    <!-- עמוד בית (מינימום כדי לפעול) -->
+    <section id="tab-home" class="page">
+      <div class="card">
+        <h2>Your avatar</h2>
+        <p><em>Mood:</em> <span id="mood">happy</span></p>
+        <button id="markWorkout">✨ I worked out today!</button>
+        <button id="gotoAvatar">Change outfit</button>
+      </div>
+    </section>
+
+    <!-- עמוד אוכל (Placeholder) -->
+    <section id="tab-food" class="page">
+      <div class="card"><h2>Food (soon)</h2></div>
+    </section>
+
+    <!-- עמוד אימונים (Placeholder) -->
+    <section id="tab-workouts" class="page">
+      <div class="card"><h2>Workouts (soon)</h2></div>
+    </section>
+
+    <!-- עמוד לוח שנה (Placeholder) -->
+    <section id="tab-calendar" class="page">
+      <div class="card"><h2>Calendar (soon)</h2></div>
+    </section>
   </main>
 
-  <!-- Bottom nav (fixed) -->
+  <!-- ניווט תחתון -->
   <nav class="tabs">
-    <button data-tab="home"   class="is-active">🏠</button>
-    <button data-tab="avatar">👗</button>
-    <button data-tab="food"   disabled>🍎</button>
-    <button data-tab="workouts" disabled>💪</button>
-    <button data-tab="calendar" disabled>📅</button>
+    <button data-tab="home">🏠</button>
+    <button data-tab="avatar" class="active">🧒</button>
+    <button data-tab="food">🍓</button>
+    <button data-tab="workouts">💪</button>
+    <button data-tab="calendar">📅</button>
   </nav>
 
-  <!-- Service worker -->
-  <script>
-    if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js?v=7').catch(console.error);
-      });
-    }
-  </script>
-
-  <!-- App -->
-  <script src="app.js?v=7" defer></script>
+  <script>if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js').catch(console.error)); }</script>
+  <script src="app.js?v=10" defer></script>
 </body>
 </html>
