@@ -1,0 +1,66 @@
+:root{
+  --bg:#ffeef7;
+  --card:#fff5fb;
+  --ink:#5b4760;
+  --accent:#ff6db1;
+  --accent-2:#ffd2eb;
+  --pill:#f9e6f2;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: radial-gradient(60% 50% at 50% 0%, #fff 0, var(--bg) 60%);
+  color:var(--ink);
+}
+
+/* Header */
+.app-header{
+  position:sticky; top:0; z-index:10;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:14px 18px; background:#fff; border-bottom:1px solid #f3dbe8;
+}
+.app-header h1{margin:0; font-size:20px}
+.money{font-weight:700}
+
+/* Screens */
+#screens{padding:80px 16px 90px} /* room for header & tabs */
+.screen{display:none; max-width:900px; margin:0 auto}
+.screen.is-active{display:block}
+
+.card{
+  background:var(--card);
+  border:1px solid #f3dbe8; border-radius:16px; padding:16px;
+  width:320px;
+}
+.hint{opacity:.7}
+
+/* Avatar stage */
+.stage{display:flex; justify-content:center; align-items:center; margin:12px 0}
+.avatar-svg{width:260px; height:312px; filter: drop-shadow(0 12px 20px rgba(0,0,0,.06));}
+.avatar-svg.mini{width:80px; height:96px}
+
+/* Controls */
+.controls{max-width:900px; margin:0 auto; display:grid; gap:10px; padding-bottom:10px}
+.group label{display:block; font-size:14px; margin:8px 2px}
+.chips{display:flex; gap:6px; flex-wrap:wrap}
+.chips button{
+  border:1px solid #f0cfe2; background:#fff; border-radius:10px; padding:6px 10px; cursor:pointer;
+}
+.chips button.is-on{background:var(--accent); color:#fff; border-color:#ff9ad0}
+
+/* Pills & buttons */
+.pill{background:var(--accent); color:#fff; border:0; border-radius:999px; padding:10px 14px; cursor:pointer}
+.pill.outline{background:var(--pill); color:var(--ink)}
+
+/* Tabs (bottom nav) */
+.tabs{
+  position:fixed; left:0; right:0; bottom:0; z-index:10;
+  display:flex; justify-content:space-around; padding:10px 6px; background:#fff; border-top:1px solid #f3dbe8;
+}
+.tabs button{
+  width:60px; height:44px; border-radius:12px; border:0; background:#f8e8f1; font-size:20px; cursor:pointer;
+}
+.tabs button.is-active{background:var(--accent); color:#fff}
